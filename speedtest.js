@@ -116,7 +116,8 @@ function objectTest(strings, tests) {
   performance.measure('object', 'object');
 }
 
-objectTest(strings, tests);
-setTest(strings, tests);
-mapTest(strings, tests);
-listTest(strings, tests);
+
+const TESTS = [objectTest,mapTest,setTest,listTest];
+for (let test of TESTS) {
+  test.call(null, strings, tests);
+}
